@@ -6,27 +6,27 @@ const config = {
     trailingSlash: false,
   },
   header: {
-    logo: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg',
-    logoLink: 'https://hasura.io/learn/',
-    title:
-      "<a href='https://hasura.io/learn/'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
-    githubUrl: 'https://github.com/hasura/gatsby-gitbook-boilerplate',
+    logo: 'https://logodix.com/logo/1920037.png',
+    logoLink: 'https://pluto.app/',
+    title: 'Pluto Multi App Integration Toolbox',
+    // "<a href='https://pluto.app/'><img class='img-responsive' src='https://logodix.com/logo/1920037.png' alt='Pluto Logo' /></a>",
+    githubUrl: 'https://github.com/plutovr',
     helpUrl: '',
     tweetText: '',
-    social: `<li>
-		    <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
-		      <div class="twitterBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Discord'}/>
-		      </div>
-		    </a>
-		  </li>
-			<li>
-		    <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
-		      <div class="discordBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
-		      </div>
-		    </a>
-		  </li>`,
+    // social: `<li>
+    //     <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
+    //       <div class="twitterBtn">
+    //         <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Discord'}/>
+    //       </div>
+    //     </a>
+    //   </li>
+    // 	<li>
+    //     <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
+    //       <div class="discordBtn">
+    //         <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
+    //       </div>
+    //     </a>
+    //   </li>`,
     links: [{ text: '', link: '' }],
     search: {
       enabled: false,
@@ -39,16 +39,18 @@ const config = {
   sidebar: {
     forcedNavOrder: [
       '/introduction', // add trailing slash if enabled above
-      '/codeblock',
+      'tools',
+      '/getting_started',
+      '/advanced_tutorials',
+
     ],
     collapsedNav: [
       '/codeblock', // add trailing slash if enabled above
     ],
-    links: [{ text: 'Hasura', link: 'https://hasura.io' }],
+    links: [{ text: 'Pluto', link: 'https://pluto.app' }],
     frontline: false,
     ignoreIndex: true,
-    title:
-      "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
+    title: 'Pluto Multi App Integration Toolbox',
   },
   siteMetadata: {
     title: 'Gatsby Gitbook Boilerplate | Hasura',
