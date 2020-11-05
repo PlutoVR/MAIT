@@ -1,21 +1,19 @@
 language: node_js
 node_js:
-  - "10.15.3"
+  - "10"
 install:
   - npm install
 script:
   - npm run build
-# deploy:
-#   - provider: s3
-#     region: us-west-2
-#     bucket: mait.pluto.app
-#     skip_cleanup: true
-#     local-dir: public
-#     acl: public_read
-#     on:
-#       branch: mainfoo
-# - provider: script
-#   skip_cleanup: true
-#   script: ./build_scripts/cloudfront-invalidation.sh EIS2ZR9S6P4N8
-#   on:
-#     branch: main
+deploy:
+  - provider: s3
+    region: us-west-2
+    bucket: mait.pluto.app
+    skip_cleanup: true
+    local-dir: public
+    acl: public_read
+    on:
+      branch: main
+    access_key_id: AKIA4S72I43BAKPOP5BC
+    secret_access_key:
+      secure: sQULMN+b/N4hwkUh5eI7cO+qLEnWrAnVPB+W+vHEAQLZY1e7AK74FmHnprc0vPAfqwQJ4NgHtcL88Uw3DegATOL2Qzz1POxzbXARWPnTafckfD4fEVS35+GwR3nE4oHkCldahQNeufP8PtDL8mcT881RUW/bupoKQwg4O3d9dNTIxTvXzaM0+fmvxWa3hgZiKrzjIQozNeAUJ4FwdHa6zhOONnbaxUVdSPS17twXfzV8MJ+MV3fQt4aZ++ceMsLjn0AkJfPBJLIR+h9MqO77BFthr0JY91ASkBzh85+ph9eQWnF3yHseeTGCVwNM/WyF3RotZ5rvwbtlUc6LxOMQLPu7FIeZLJlhWd3XV4OfcyoMAYpCUwiU8HspSPtJwZNNOxiu4kgEAWRqQ6p4ybvd14tjeOyVU0zw0Vp2NTRTPUx2YygJUx3vqG9JhxDfLMYfeowDDCeRSLOpOiK3nWh0IilL8eV9+DJxWCApiAiQWwY9w7htyOr5mj+4jQQzwMhNIFM1jvJoTRwUfg8HPz6NUnYH6Fgg4OEDp5yJo2Xrih8OY2qDdsjmwzSSf/BewUgTxmOkrUKwBpf0cZv82BgFvFo584kd7UO5vfY+ejE7YQcVrr2EjEykcwPx4+WfVOFuQcX+r2KmCtZXAfuzVUVkIZ+e2WXZDoHOXHKireXYMmY=
