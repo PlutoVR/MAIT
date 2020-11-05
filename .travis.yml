@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "10.15.3"
+install:
+  - npm install
+script:
+  - npm run build
+# deploy:
+#   - provider: s3
+#     region: us-west-2
+#     bucket: mait.pluto.app
+#     skip_cleanup: true
+#     local-dir: public
+#     acl: public_read
+#     on:
+#       branch: main
+# - provider: script
+#   skip_cleanup: true
+#   script: ./build_scripts/cloudfront-invalidation.sh EIS2ZR9S6P4N8
+#   on:
+#     branch: main
