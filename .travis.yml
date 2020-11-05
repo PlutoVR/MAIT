@@ -13,7 +13,7 @@ script:
 #     local-dir: public
 #     acl: public_read
 #     on:
-#       branch: main
+#       branch: mainfoo
 # - provider: script
 #   skip_cleanup: true
 #   script: ./build_scripts/cloudfront-invalidation.sh EIS2ZR9S6P4N8
