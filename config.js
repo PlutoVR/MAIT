@@ -40,15 +40,13 @@ const config = {
       '/introduction', // add trailing slash if enabled above
       '/getting_started',
       '/platforms',
-      '/platforms/tb_aardvark',
-      '/platforms/tb_webxr',
-      '/platforms/tb_misc',
+      // '/platforms/tb_aardvark',
+      // '/platforms/tb_chimera',
+      // '/platforms/tb_misc',
       '/beginner_tutorials',
       '/advanced_tutorials',
-
     ],
-    collapsedNav: [
-    ],
+    collapsedNav: [],
     links: [{ text: 'Pluto', link: 'https://pluto.app' }],
     frontline: false,
     ignoreIndex: true,
