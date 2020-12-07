@@ -40,11 +40,22 @@ If you want to get a head start in a more structured learning experience, check 
 
 [Chimera](https://chimera.pluto-api.com/) is a [WebXR](https://www.w3.org/TR/webxr/) multi-app web-based runtime, based on [XR Packages](https://github.com/webaverse/xrpackage) (also referred to as XRPKs). Chimera enables the instantiation and removal of XR Packages in VR, as well as sharing them with anyone via [Pluto](http://plutovr.com) conversations.To experience the power of chimera-powered XR Multi Apps, go to [https://chimera.pluto-api.com/](https://chimera.pluto-api.com/) in [Metachromium](https://store.steampowered.com/app/685110/Metachromium/) and try adding XR Packages, either from the default list or a custom one. Immediately upon creating a new XR Package you will see it appear in your browser - or, if SteamVR is running, in VR. Since XR Packages are multi apps you can add as many XR Packages as you wish.
 
-One of the features of Chimera is out-of-the-box multiuser capabilities via Pluto: If you start or join a Pluto conversation while running Chimera, any other participants who are also running Chiumera will automatically see your XR Packages as you add them, and be able to add their own.
-
+### XR Packages
 XR Packages are simply web apps written in Javascript that utilize the WebXR Spec. You can create them using Javascript XR frameworks like [ThreeJS](https://threejs.org/), [AFrame](https://aframe.io/) and [Sandcastle](https://github.com/plutovr/sandcastle/) (see above) - as well as Unity and, soon, Unreal Engine.
 
-To learn more about creating XR Packages, see the tutorials below or read more at [https://xrpackage.org](https://xrpackage.org).
+To learn more about creating XR Packages, see the tutorials below or read more at [https://xrpackage.org](https://xrpackage.org). 
+
+### Chimera + XR Packages
+One of the features of Chimera is out-of-the-box multiuser capabilities via Pluto: If you start or join a Pluto conversation while running Chimera, any other participants who are also running Chimera will automatically see your XR Packages as you add them, and be able to add their own. This is possible because a unique app ID is created for your XRPK and is shared with others so they run the same instance of it.
+
+Chimera also makes this unique app ID accessible in your XPRK by passing it as a query parameter with the key `appid`. You can access this app ID in your XRPK by searching the query parameters with [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams).
+
+```
+  const params = new URLSearchParams(location.search);
+  const appID = params.get("appid");
+```
+
+The app ID can be useful in your app as a session ID for networks, such as when creating up a [Croquet session](https://croquet.io/sdk/docs/Session.html) or when you need a session ID for logging purposes.
 
 # Unity
 
