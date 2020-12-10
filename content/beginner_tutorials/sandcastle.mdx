@@ -61,9 +61,11 @@ The folder hierarchy in our new project folder should look something like this:
 
 There's a lot going on here, so let's focus on what's important:
 
-- `./src/engine/engine.js` is Sandcastle. It runs the main render loop, pulls in State, Physics, XR Input and other features.
-- './src/engine _also contains the rest of Sandcastle_, and`./src/examples` contains several examples of utilizing networking, physics, rich media and more. Refer to them and the The Sandcastle [Wiki](https://github.com/PlutoVR/sandcastle/wiki) for more information on individual features.
-- `./examples/defaultscene.js` is the scene currently loaded into`engine.js`, and if you open it you'll see the ThreeJS code that is responsible for what you see in your browser. We'll be iterating on this file.
+- `./src/engine/engine.js` is Sandcastle. It runs the main render loop, pulls in State, Physics, XR Input and other features. `./src/engine` _ contains the rest of Sandcastle_.
+- `./src/examples` contains several examples that utilize networking, physics, rich media and more. Refer to them and the Sandcastle [Wiki](https://github.com/PlutoVR/sandcastle/wiki) for more information on individual features.
+- `./examples/defaultscene.js` is the scene currently loaded into the Sandcastle engine. This is done by calling the `loadScene` function inside `index.js`. This is also where you can change the scene that is loaded into the engine.
+
+If you open `defaultscene.js` you'll see the ThreeJS code that is responsible for what you see in your browser. We'll be iterating on this file.
 
 ## Change it up
 
