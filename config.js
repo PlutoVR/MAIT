@@ -43,9 +43,7 @@ const config = {
       '/beginner_tutorials',
       '/advanced_tutorials',
     ],
-    collapsedNav: [
-      '/beginner_tutorials'
-    ],
+    collapsedNav: ['/beginner_tutorials'],
     links: [{ text: 'Pluto', link: 'https://pluto.app' }],
     frontline: false,
     ignoreIndex: true,

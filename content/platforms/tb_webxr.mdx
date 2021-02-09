@@ -1,11 +1,11 @@
 ---
-title: 'Chimera/WebXR'
-metaTitle: 'Chimera/WebXR'
-metaDescription: 'Chimera/WebXR'
+title: 'WebXR Multi Apps'
+metaTitle: 'WebXR Multi Apps'
+metaDescription: 'WebXR Multi Apps'
 ---
 
 By utilizing a specific stack of software, you can experience, create and share XR multi apps on the web using the power of WebXR.
-The terms you’ll want to familiarize yourself with are [**Metachromium**](#Metachromium), [**XR Packages**](#xrpackages), [**Sandcastle**](#sandcastle) (optional building framework) and [**Chimera**](#chimera).
+The terms you’ll want to familiarize yourself with are [**Metachromium**](#Metachromium), [**XR Packages**](#xrpackages), [**Sandcastle**](#sandcastle) (optional building framework) and [**The Pluto App Launcher**](#pluto_app_launcher).
 As you'll note below, you can also use third party tools such as [**Blender**](#blender) and [**Unity**](#unity) to create multiapps that are powered by this stack.
 
 # Metachromium
@@ -14,7 +14,7 @@ As you'll note below, you can also use third party tools such as [**Blender**](#
 
 [Metachromium](https://store.steampowered.com/app/685110/Metachromium/) is a free, SteamVR-based spatial app browser that runs side-by-side with OpenVR.
 
-It lets you open any WebXR page as a spatial overlay app that runs on top of any other VR game. Metachromium is based on the open source Chromium browser as well as web standards like WebXR. It is one of the only ways to currently experience the power of VR multi apps all running at the same time, via XR Packages and WebXR webapps like Chimera and [https://xrpackage.org](https://xrpackage.org).
+It lets you open any WebXR page as a spatial overlay app that runs on top of any other VR game. Metachromium is based on the open source Chromium browser as well as web standards like WebXR. It is one of the only ways to currently experience the power of VR multi apps all running at the same time, via XR Packages and WebXR webapps like the Pluto App Launcher and [https://xrpackage.org](https://xrpackage.org).
 
 # XR Packages
 
@@ -34,21 +34,21 @@ To learn more about experiencing and developing XR Packages, keep reading, or ch
 You can learn more about Sandcastle on [GitHub](https://github.com/plutovr/sandcastle/), and check out its [wiki](https://github.com/plutovr/sandcastle/) for a closer look at Sandcastle's Networking API, Physics API, event handling and state management, asset pipelines and more.
 If you want to get a head start in a more structured learning experience, check out the entry-level [Sandcastle Multi App tutorial](../beginner_tutorials/sandcastle)
 
-# Chimera
+# The Pluto App Launcher
 
-![](../images/chimera_logo.png)
-
-[Chimera](https://chimera.pluto-api.com/) is a [WebXR](https://www.w3.org/TR/webxr/) multi-app web-based runtime, based on [XR Packages](https://github.com/webaverse/xrpackage) (also referred to as XRPKs). Chimera enables the instantiation and removal of XR Packages in VR, as well as sharing them with anyone via [Pluto](http://plutovr.com) conversations.To experience the power of chimera-powered XR Multi Apps, go to [https://chimera.pluto-api.com/](https://chimera.pluto-api.com/) in [Metachromium](https://store.steampowered.com/app/685110/Metachromium/) and try adding XR Packages, either from the default list or a custom one. Immediately upon creating a new XR Package you will see it appear in your browser - or, if SteamVR is running, in VR. Since XR Packages are multi apps you can add as many XR Packages as you wish.
+[The Pluto App Launcher](https://chimera.pluto.app/) is a [WebXR](https://www.w3.org/TR/webxr/) multi-app web-based runtime, based on [XR Packages](https://github.com/webaverse/xrpackage) (also referred to as XRPKs). The App Launcher enables the instantiation and removal of XR Packages in VR, as well as sharing them with anyone via [Pluto](http://plutovr.com) conversations.To experience the power of Pluto-powered XR Multi Apps, go to [https://chimera.pluto.app/](https://chimera.pluto.app/) in [Metachromium](https://store.steampowered.com/app/685110/Metachromium/) and try adding XR Packages, either from the default list or a custom one. Immediately upon creating a new XR Package you will see it appear in your browser - or, if SteamVR is running, in VR. Since XR Packages are multi apps you can add as many XR Packages as you wish.
 
 ### XR Packages
+
 XR Packages are simply web apps written in Javascript that utilize the WebXR Spec. You can create them using Javascript XR frameworks like [ThreeJS](https://threejs.org/), [AFrame](https://aframe.io/) and [Sandcastle](https://github.com/plutovr/sandcastle/) (see above) - as well as Unity and, soon, Unreal Engine.
 
-To learn more about creating XR Packages, see the tutorials below or read more at [https://xrpackage.org](https://xrpackage.org). 
+To learn more about creating XR Packages, see the tutorials below or read more at [https://xrpackage.org](https://xrpackage.org).
 
-### Chimera + XR Packages
-One of the features of Chimera is out-of-the-box multiuser capabilities via Pluto: If you start or join a Pluto conversation while running Chimera, any other participants who are also running Chimera will automatically see your XR Packages as you add them, and be able to add their own. This is possible because a unique app ID is created for your XRPK and is shared with others so they run the same instance of it.
+### Pluto App Launcher + XR Packages
 
-Chimera also makes this unique app ID accessible in your XPRK by passing it as a query parameter with the key `appid`. You can access this app ID in your XRPK by searching the query parameters with [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams).
+One of the features of the Pluto App Launcher is out-of-the-box multiuser capabilities via Pluto: If you start or join a Pluto conversation while running the launcher, any other participants who are also running the launcher will automatically see your XR Packages as you add them, and be able to add their own. This is possible because a unique app ID is created for your XRPK and is shared with others so they run the same instance of it.
+
+The Pluto App Launcher also makes this unique app ID accessible in your XPRK by passing it as a query parameter with the key `appid`. You can access this app ID in your XRPK by searching the query parameters with [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams).
 
 ```
   const params = new URLSearchParams(location.search);
@@ -62,14 +62,14 @@ The app ID can be useful in your app as a session ID for networks, such as when 
 ![](../images/unity_logo.png)
 
 To learn how to export XR Packages from Unity, see [this Webaverse developer guide](https://docs.webaverse.com/docs/dev-guides/importing-from-unity).
-Once you export a .wbn from your Unity project, you can import it into [Chimera](#chimera).
+Once you export a .wbn from your Unity project, you can import it into the Pluto App Launcher.
 
 # Blender
 
 ![](../images/blender_logo.png)
 
 To learn how to create XR Packages using Blender, see [this Webaverse developer guide](https://docs.webaverse.com/docs/dev-guides/importing-from-blender).
-Once you export a .wbn from your Blender project, you can import it into [Chimera](#chimera).
+Once you export a .wbn from your Blender project, you can import it into the Pluto App Launcher.
 
 # UE4
 

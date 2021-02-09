@@ -11,7 +11,7 @@ metaDescription: 'Tutorial: Your First Sandcastle Multi App'
 In this brief guide, we'll:
 
 1. **build** a multi app XR Package (abbreviated as "xrpk" from here on) from scratch, using Sandcastle
-2. **deploy** it to Chimera, where it can coexist simultaneously among _other_ XR multi apps. It will also be visible and interactable by other participants in any [Pluto](httsp://pluto.app) conversation.
+2. **deploy** it to Pluto's App Launcher, where it can coexist simultaneously among _other_ XR multi apps. It will also be visible and interactable by other participants in any [Pluto](httsp://pluto.app) conversation.
 
 [Sandcastle](https://github.com/plutovr/sandcastle/) is a friendly WebXR framework for creating spatial-first, multi-user WebXR apps and XR Packages.
 It also features a build pipeline designed explicitly for XR Package creation and as such, is probably the easiest way to get started creating XR Packages.
@@ -27,7 +27,7 @@ For this tutorial, you'll need:
 
 - [NodeJS](https://nodejs.org/en/) and, ideally, a basic working knowledge of Node (mostly running scripts in your terminal)
 - Your JavaScript-friendly IDE of choice; (many of us like [VS Code](https://code.visualstudio.com/), but it doesn't make a big difference).
-- [Metachromium](https://store.steampowered.com/app/685110/Metachromium/), a free, SteamVR-based spatial app browser that is necessary to run Chimera and XR Packages. While WebXR itself is supported by most major browsers, Metachromium is unique in its ability to deliver WebXR as an XR _overlay_, so that Metachromium-based WebXR content can coexist with XR content from elsewhere.
+- [Metachromium](https://store.steampowered.com/app/685110/Metachromium/), a free, SteamVR-based spatial app browser that is necessary to run the Pluto App Launcher and XR Packages. While WebXR itself is supported by most major browsers, Metachromium is unique in its ability to deliver WebXR as an XR _overlay_, so that Metachromium-based WebXR content can coexist with XR content from elsewhere.
 
 ## Setup
 
@@ -217,7 +217,7 @@ export { scene };
 
 ## Package it up!
 
-Finally, let's turn this app into an [XR Package](../platforms/tb_chimera#xrpackages) so that we can load it alongisde other multi apps as we traverse the immersive web!
+Finally, let's turn this app into an [XR Package](../platforms/tb_webxr#xrpackages) so that we can load it alongisde other multi apps as we traverse the immersive web!
 
 Sandcastle has a handy script that turns WebXR apps into XR Pacakges. From the command line in your project folder, run:
 
@@ -231,15 +231,15 @@ You'll be guided through an interactive menu - choose the default option for any
 
 As the script mentions, your xrpk now awaits you in the `./dist` folder; note that the XR Package is a single file, and its suffix is `.wbn`.
 
-Load it up in your preferred XR Pacakge environment (we recommend [Chimera](https://chimera.pluto-api.com/) - note that you'll currently have to serve your file remotely using the `Custom-From URL` option), and see it in action alongside other multi apps!
+Load it up in your preferred XR Pacakge environment (we recommend [The Pluto App Launcher](https://chimera.pluto.app/) - note that you'll currently have to serve your file remotely using the `Custom-From URL` option), and see it in action alongside other multi apps!
 
 ![](./sandcastle/7.gif)
 
-Thanks to the magic of Chimera and Sidecar, if you now start or join a Pluto conversation, other participants (also running Chimera) will be able to see and interact with your app!
+Thanks to the magic of the Pluto App Launcher and Sidecar, if you now start or join a Pluto conversation, other participants (also running the App Launcher) will be able to see and interact with your app!
 
 We've only scratched the surface, of course - upcoming tutorials will discuss more advanced networking, inputs and more.
 
-That just about wraps up this Sandcastle tutorial; you are now able to jumpstart a WebXR app, iterate on it, turn it into an XR Package and load it in Chimera.
+That just about wraps up this Sandcastle tutorial; you are now able to jumpstart a WebXR app, iterate on it, turn it into an XR Package and load it in the Pluto App Launcher.
 
 What multi app will you build next?
 
