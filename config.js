@@ -42,6 +42,7 @@ const config = {
       '/platforms',
       '/beginner_tutorials',
       '/advanced_tutorials',
+      '/xr_design_and_accessibility',
     ],
     collapsedNav: ['/beginner_tutorials'],
     links: [{ text: 'Pluto', link: 'https://pluto.app' }],

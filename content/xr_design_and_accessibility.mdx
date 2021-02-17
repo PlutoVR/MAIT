@@ -1,0 +1,54 @@
+---
+title: 'XR Design and Accessibility Guide'
+metaTitle: 'XR Design and Accessibility Guide'
+metaDescription: 'XR Design and Accessibility Guide'
+---
+
+Welcome to our XR Design and Accessibility Guide! If you’re here, you might be interested in design considerations to make when creating in VR or how to best incorporate accessibility in your project.
+
+This guide is an exercise in considering accessibility during the design and planning process. As developers in emerging tech, it can often feel easier to think about accessibility at a later stage in the development process. Realistically though, considering accessibility after the fact can be a daunting task, especially when your main concern is to make your feature or application functional. 
+
+Under certain conditions, accessibility can be the difference between a user having an experience and a user being excluded from one. Sometimes these disabilities can be permanent, but they can also be situational or temporary. For example, a person without an arm (a permanent disability), a person with a cast (a temporary disability) and a person holding a child (a situational disability) might benefit from the opportunity to choose their preference of using one VR controller rather than two without feeling limited by the experience. 
+
+Although we often consider the ideal user, most people do not strictly fall into these categories. Allowing people to choose how they experience their experiences does not only benefit people with disabilities, it benefits everyone. While there may be the inclination to make your experience a literal extended version of reality, we also have the opportunity to create an extended reality that adapts to the needs of the people living in it. People will need different options based on their needs. The ability to adjust preset options allows the user to experience your application in a manner that is comfortable to them. 
+
+This is not a clear cut guide of the do’s and don’ts when designing user experiences in VR, but  a compilation of our research and resources on the subject. With everything, test and see if it works for you and your needs.  
+
+# Text
+|| <div style="width:300px">Options</div> | Why |
+|:-----|:-----:|-----:|
+| Color | Light-colored font with outline is recommended | Light colored fonts work are recommended because backgrounds are more likely to be dark than light, but test this according to your needs. |
+| Location | <li>At a fixed distance in front of the user</li> <li>On a fixed location</li> <li>Above a character’s head</li> | What does the text convey and what location will best affect the user’s experience? |
+| Font size | <li>Small</li><li>Medium</li><li>Large</li> | Set the default size to medium and allow the user to adjust font size (either by creating preset options or scale) to their comfort level.  This should start at 10% of the screen’s height and adjust as needed. |
+| Friendly fonts | <li>Arial</li> <li>OpenDyslexic</li> | Sans serif and monospaced fonts are often easier to read. Allowing a user to choose a preferred font based on their needs means that their experience is less likely to be diminished by something that we (the devs) can easily adjust. |
+| Visual indicators | <li>Arrows</li> <li>Animations</li> | Due to the nature of the 360 degree experience, we often lack control over what the user is seeing. If there is text that needs to be read, cue the user with visual indicators if they’re looking in the wrong direction. |
+| Alignment | Left-aligned and no justification | Left-aligned text with no justification is easier to read for those with dyslexia. |
+
+# Subtitles
+While most of the recommendations for subtitles will fall under the text category, consider any audio and the cues that might be missed for a person with a hearing disability or low volume settings. Is your experience the same without audio entirely? Would it benefit from captioning?
+
+# Display
+| | Why |
+|:-----|-----:|
+| Color | Is color being used to indicate important behavior, like red for “stop” or green for “go”? Consider supplementing these behaviors with patterns, symbols or shapes to enforce differences. |
+| Brightness | Brightness presets can assist people with low vision. |
+| Contrast | Contrast presets can assist people with low vision. Verify if a change in contrast still offers the same amount of depth. |
+| Distance | Consider allowing functionality to bring objects closer. This can help people with low vision or limited mobility. |
+| Size | Size presets can include changing the size of fonts, objects, buttons, etc. Some people would benefit from interacting with a bigger hitbox. |
+
+# Inputs
+Input alternatives can greatly affect those with limited mobility, whether it is situation, temporary or permanent.
+
+|| <div style="width:300px">Options</div> | Why |
+|:-----|:-----:|-----:|
+| Head movement alternatives | Directional input (moving the joystick left or right) <li>Quick turns (rotating 30-45 degrees)</li> <li>Sharp turns (rotating 30-45 degrees with no transition</li>
+Audio commands | |
+| Locomotion alternatives | <li>Teleportation</li> <li>Free locomotion (free movement within one’s playspace)</li> <li>Rails (moves through the experience for the user. Can cause nausea if emulating real speed)</li> | |
+| Distance grabbing alternatives | Hover over object to interact with raycast | |
+
+# Resources
+[Oculus Reality Check Guidelines](https://developer.oculus.com/distribute/publish-quest-req/)
+
+[Designing Accessible VR Experiences](https://www.youtube.com/watch?v=yFVPMYDO_OE)
+
+[XR Accessibility User Requirements](https://www.w3.org/TR/xaur/)
