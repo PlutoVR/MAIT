@@ -21,3 +21,8 @@ deploy:
     access_key_id: AKIA4S72I43BAKPOP5BC
     secret_access_key:
       secure: sQULMN+b/N4hwkUh5eI7cO+qLEnWrAnVPB+W+vHEAQLZY1e7AK74FmHnprc0vPAfqwQJ4NgHtcL88Uw3DegATOL2Qzz1POxzbXARWPnTafckfD4fEVS35+GwR3nE4oHkCldahQNeufP8PtDL8mcT881RUW/bupoKQwg4O3d9dNTIxTvXzaM0+fmvxWa3hgZiKrzjIQozNeAUJ4FwdHa6zhOONnbaxUVdSPS17twXfzV8MJ+MV3fQt4aZ++ceMsLjn0AkJfPBJLIR+h9MqO77BFthr0JY91ASkBzh85+ph9eQWnF3yHseeTGCVwNM/WyF3RotZ5rvwbtlUc6LxOMQLPu7FIeZLJlhWd3XV4OfcyoMAYpCUwiU8HspSPtJwZNNOxiu4kgEAWRqQ6p4ybvd14tjeOyVU0zw0Vp2NTRTPUx2YygJUx3vqG9JhxDfLMYfeowDDCeRSLOpOiK3nWh0IilL8eV9+DJxWCApiAiQWwY9w7htyOr5mj+4jQQzwMhNIFM1jvJoTRwUfg8HPz6NUnYH6Fgg4OEDp5yJo2Xrih8OY2qDdsjmwzSSf/BewUgTxmOkrUKwBpf0cZv82BgFvFo584kd7UO5vfY+ejE7YQcVrr2EjEykcwPx4+WfVOFuQcX+r2KmCtZXAfuzVUVkIZ+e2WXZDoHOXHKireXYMmY=
+  - provider: script
+      skip_cleanup: true
+      script: ./build_scripts/cloudfront-invalidation.sh E5DR0G1VS0GEB
+      on:
+        branch: main
