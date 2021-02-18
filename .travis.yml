@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - "10"
+env:
+  global:
+    - AWS_ACCESS_KEY_ID=AKIA4S72I43BAKPOP5BC
+    - secure: FlyAYc1EF1uRDrEpDWsfRG5YFzFtnpX2jHf+J44BDn7zepOvNIRNfz+SRXOgi+CWt6hiMyvcKblT3H/1vHsbB0lQ2HlYf1g+EtWBI2nzTvN6sfypGbyus0Yx0BkJSSCbKkPlhr9qb5yxOGEZzXeY5e5s5ZMubnSwOrJq6BaBQrArXy2abygIWP8qnyObrGaMQ/kOEnT6/3tgomWyc9x1zNTuQdkQYSZM4azGuDJRx1SZM2em9/lX4umvdX4u7iikeLocwWqnDJPdVYcrdfhC4dILBqkSlVVbv/J+TjpDYEYSBBTUsI2GAew8TV0utaSj+4amGUnqX1IeTjh7IYL+vBp8fSGanLg4tBMjGVjGNuRasqr0HKgeBMyWHGmchMtJykH7uuzDi8n+Lxv/3TldCDoCbd9I5tUuRV88d+zsH6Iac4YDFt0v0w/PF77oDGXvouUTx1t86bTv7mjKtF9NOGndlY/Hkah3CWtqpwkYzJOZwYh8qtFmaQJ10saD3N3Pp4UCE3sF8fIxSCVzV7RtFzbjUnawLEZ9v/eNxMb/7pFPV2ku20uiRZm6lSt5UoIHvbC4Oj06mRLNNrTsl19cqIb2a8iQwt9qOB/qEK0pXxynqkhOyGPrW2c9kfnh3/p7TMQYhP0M4/BtROmRBa1eG2OBogtifRYBrnF8FWswQZU=
 install:
   - npm install
 script:
