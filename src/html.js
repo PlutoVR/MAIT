@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import config from '../config';
-import * as THREE from "three";
 export default class HTML extends React.Component {
   render() {
     return (
