@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Building OpenXR Multiapps with UE4'
-metaTitle: 'Tutorial: Building OpenXR Multiapps with UE4'
-metaDescription: 'Tutorial: Building OpenXR Multiapps with UE4'
+title: 'Tutorial: Building OpenXR Multi Apps with UE4'
+metaTitle: 'Tutorial: Building OpenXR Multi Apps with UE4'
+metaDescription: 'Tutorial: Building OpenXR Multi Apps with UE4'
 ---
 
-# Building OpenXR Multiapps with UE4
+# Building OpenXR Multi Apps with UE4
 
 `Latest Update: January 2021`
 
@@ -14,7 +14,7 @@ metaDescription: 'Tutorial: Building OpenXR Multiapps with UE4'
 ## What is this?
 
 Pluto, in collaboration with [LunarG](https://www.lunarg.com/) and [the OpenXR Working Group](https://www.khronos.org/openxr/), is working on an [OpenXR Overlay Extension](https://github.com/LunarG/OpenXR-OverlayLayer)
-that will with Unreal Engine 4, creating multi apps will be more straightforward than ever and won't require knowledge of coding or any advanced high-skill domain.
+that will be compatible with Unreal Engine 4's OpenXR plugin, enabling straightforward Multi App creation doesn't require knowledge of coding or any advanced high-skill domain.
 While the effort is still underway and these are early days, if you want to get started building Unreal Engine 4 overlay apps, you can give it a try right now.
 
 ## Disclaimer
@@ -25,7 +25,7 @@ The UE4 Overlay Extension isn't stable yet and should be considered highly-bleed
 
 To create UE4 Overlay Multi Apps you'll want to:
 
-- Compile the OpenXR sdk
+- Compile the OpenXR SDK
 - Compile the OpenXR overlay extension
 - Compile a special build of UE4 that currently can output overlay apps
 
@@ -55,17 +55,17 @@ Depending on the errors you run into and how strong your machine is, this proces
 
 Follow the instructions [in the repo](https://github.com/KhronosGroup/OpenXR-SDK-Source/blob/master/BUILDING.md), except where it says to build into `build/win64` - you’ll want to build into `build/`, with no additional folder. Make sure you build _with_ the loader as a .dll (`DYNAMIC_LOADER=ON`).
 
-**SANITY CHECK**: after building, run `hello_xr` (see instructions on the repo) to make sure OpenXR is working properly on your machine. Make sure to run it passing `-g D3D11` as arguments (always - we want to be using DirectX 11).
+**SANITY CHECK**: after building, run `hello_xr` (see instructions [in the repo](https://github.com/KhronosGroup/OpenXR-SDK-Source/blob/master/BUILDING.md)) to make sure OpenXR is working properly on your machine. Make sure to run it passing `-g D3D11` as arguments (always - we want to be using DirectX 11).
 
 ### 2. Compile the overlay extension
 
 Make sure you’re in the branch [ue4-compatibility](https://github.com/LunarG/OpenXR-OverlayLayer/tree/ue4-compatibility)!
 Compile based on the instructions in the repo. Once it is compiled, continue to “Operation”.
 
-Understand that this part requires creating a new folder and copying select parts of the compiled extension, as well as the loader from the previous steps, as well as some random-seeming ish.
+Understand that this part requires creating a new folder and copying select parts of the compiled extension, as well as the loader from the previous steps and other components.
 FreeImage may also need to live in that folder. Here’s what that folder can look like:
 ![filesystem](./ue4_overlay_ext/1.png)
-SANITY CHECK: run hello_xr again - it’s still your original layer. Now, run OverLaySample.exe from the folder you created. Do you see a transparent screenshot of pluto over the hello xr scene? Great, means the layer is working.
+SANITY CHECK: run hello_xr again - it’s still your original layer. Now, run OverLaySample.exe from the folder you created. Do you see a transparent screenshot of Pluto over the hello xr scene? Great, means the layer is working.
 
 ### 3. Update the registry
 
@@ -107,7 +107,7 @@ Try opening the Overlay project when you’re done. (Run Unreal through VS to ge
 
 - Configurations with known errors:
 
-  - SteamXR using rift (xrLocateSpace fails for hmd)
+  - SteamXR using Oculus Rift (xrLocateSpace fails for hmd)
   - SteamXR with Quest 2 via remote desktop or Link (unreal displays on wrong display, both for extension and vanilla openxr)
   - Running in editor (too many available spaces to locate, OOM error filling array with default values
 
