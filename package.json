@@ -34,7 +34,6 @@
     "gatsby-plugin-sitemap": "^2.5.0",
     "gatsby-remark-better-embed-video": "^2.4.0",
     "gatsby-remark-copy-linked-files": "^2.3.19",
-    "gatsby-remark-embed-video": "^3.1.0",
     "gatsby-remark-images": "^3.4.1",
     "gatsby-source-filesystem": "^2.4.1",
     "gatsby-transformer-remark": "^2.9.2",
@@ -49,11 +48,11 @@
     "react-helmet": "^5.2.1",
     "react-id-generator": "^3.0.1",
     "react-instantsearch-dom": "^6.8.2",
-    "react-live": "^2.2.2",
+    "react-live": "^2.2.3",
     "react-loadable": "^5.5.0",
     "styled-components": "^4.4.1",
     "styled-icons": "^9.5.0",
-    "three": "^0.122.0"
+    "three": "^0.126.1"
   },
   "license": "MIT",
   "main": "n/a",
