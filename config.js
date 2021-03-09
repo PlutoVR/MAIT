@@ -40,11 +40,10 @@ const config = {
       '/introduction', // add trailing slash if enabled above
       '/getting_started',
       '/platforms',
-      '/beginner_tutorials',
-      '/advanced_tutorials',
+      '/tutorials',
       '/xr_design_and_accessibility',
     ],
-    collapsedNav: ['/beginner_tutorials'],
+    collapsedNav: ['/tutorials'],
     links: [{ text: 'Pluto', link: 'https://pluto.app' }],
     frontline: false,
     ignoreIndex: true,
