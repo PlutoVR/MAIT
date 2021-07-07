@@ -6,15 +6,15 @@ metaDescription: 'Tutorial: Building Multi Apps in Unity'
 
 ## Introduction
 
-In this brief guide, we'll learn how to create Multi Apps (using WebXR and XR Pacakges) in Unity.
-Working in Unity offers a great many advantages, and if it's your preferred development environment, it's probably the easiest way to get started creating Multi Apps.
+In this brief guide, you will learn how to create Multi Apps (using WebXR and XR Packages) in Unity.
+Working in Unity offers many advantages, and if it's your preferred development environment, it's probably the easiest way to get started creating Multi Apps.
 
 Fundamentally the process will include:
 
 1. Creating a new project and adding the necessary packages from [OpenUPM](https://openupm.com/docs/)
-2. setting up your project so it exports properly and enables you to rapidly-iterate with VR before building
-3. loading the sample scene and learning about Unity's API for WebXR Inputs
-4. Building an [XR Package](../platforms/tb_webxr#xrpackages) Multi App and loading it in pluto's [Multi App Launcher](../platforms/tb_webxr#theplutomultiapplauncher)
+2. Setting up your project so it exports properly and enables you to rapidly iterate with VR before building
+3. Loading the sample scene and learning about Unity's API for WebXR Inputs
+4. Building an [XR Package](../platforms/tb_webxr#xrpackages) Multi App and loading it in Pluto's [Multi App Launcher](../platforms/tb_webxr#theplutomultiapplauncher)
 
 ## 0. Prerequisites
 
@@ -74,22 +74,22 @@ You should have already imported the sample scene from the package in step `2a`.
 In the `Project` window, open the sample scene, located at `Assets/Samples/Pluto XR Package Importer/[version]/Sample XRPK Scene/Scenes`
 
 The scene is fairly minimal and consists of correctly configured cameras, some interactable and physics-enabled cubes, and visual feedback for the XR Inputs.
-In the scene hierarchy, under `XRPKCameraSet` Take a look at the `Left Controller` & `Right Controller` to understand the structure of the XR Inputs and the script `XRPK Controller Interaction` to quickly learn how to access various input features.
+In the scene hierarchy, under `XRPKCameraSet` take a look at the `Left Controller` & `Right Controller` to understand the structure of the XR Inputs and the script `XRPK Controller Interaction` to quickly learn how to access various input features.
 
 ## 4. Building our Multi App
 
-a. Once you're ready to build, go to File / Build and Run, "Add Open Scenes". Hit Build and choose your destination.
+a. Once you're ready to build, go to `File / Build Settings` and click the `Add Open Scenes` button. Hit Build and choose your destination.
 ![](./unity_xrpk/9.png)
 
 - The first time you build may well take a few minutes or more, depending on the complexity of your scene - but subsequent iterations should be quicker.
 
-b. Once you have built your app, go to the build folder you chose. Note that aside from the regular files you'd expect from a Unity WebGL export (`index.html`, etc.) there's a .wbn file bearing the name of your project. That is your multi app!
+b. Once you have built your app, go to the build folder you chose. Note that aside from the regular files you'd expect from a Unity WebGL export (`index.html`, etc.) there's a .wbn file bearing the name of your project. That is your XRPK multi app!
 ![](./unity_xrpk/10.png)
 
 c. In the Unity console, you can find out more information about the XRPK creation process, which may be useful for debugging failed builds:
 ![](./unity_xrpk/11.png)
 
-d. finally, open the [Pluto Multi App Launcher](https://chimera.pluto.app/) on Metachromium[LINK], go to "Add XR Package or Model" and choose and `Custom XRPK (from file)`:
+d. Finally, open the [Pluto Multi App Launcher](https://chimera.pluto.app/) on [Metachromium](https://store.steampowered.com/app/685110/Metachromium/), go to "Add XR Package or Model" and choose and `Custom XRPK (from file)`:
 ![](./unity_xrpk/12.png)
 
 If all has gone well, you should see your multi app in VR! If you don't, refer to the browser console for more information.
