@@ -20,16 +20,25 @@ Fundamentally the process will include:
 
 The three things you'll need to build multi apps in Unity are:
 
-- a relatively recent version of Unity (2020.3.5f1 or any higher version will do)
+- a relatively recent version of [Unity](https://unity3d.com/get-unity/download) (2020.3.5f1 or any higher version will do.)
 - [Node.js](https://nodejs.org/en/) installed on your machine and accessible from your command line.
 - `npm 5.2.0` or higher. If you've installed Node.js recently (in the past couple of years), there's a good chance you already have this.
 
 ## 1. Up and running
 
-a. Create a new Unity Project. Make sure to use the 3D Pipeline (rather than URP or HDRP)
+a. Create a new Unity Project. Make sure to choose "3D" (rather than URP, HDRP or any other option.)
 ![](./unity_xrpk/1.png)
 
-b. Go to the Package Manager settings (`Edit/Project Settings/Package Manager`) and add a new Scoped Registry for OpenUPM. Under Scope(s), make sure to add `com.de-panther` and, in a new line, `com.pluto`.
+b. Go to the Package Manager settings (`Edit/Project Settings/Package Manager`) and add a new Scoped Registry for OpenUPM. Under Scope(s), make sure to add `com.de-panther` and, in a new line, `com.pluto`:
+
+
+|        |  Scoped Registries |
+| ------ |  ----------------- |
+| Name  | `OpenUPM` |
+| URL  | `https://package.openupm.com` |
+| Scope(s)  | `com.de-panther` |
+|           | `com.pluto` |
+
 
 ![](./unity_xrpk/2.png)
 
@@ -43,7 +52,7 @@ Install it, then click `Samples` and import the `Sample XRPK Scene`. At the end 
 
 You now have access to several new options, courtesy of the newly-imported packages.
 
-b. Go to `File/Build Settings` and change the Platform to `WebGL`. If you don't have the WebGL Module installed, you should have a button prompting you to install it to that build of Unity.
+b. Go to `File/Build Settings` and change the Platform to `WebGL`. If you don't have the WebGL Module installed, you should have a button prompting you to install it to that build of Unity. After installing it, you may have to restart Unity to see the new menu options and features.
 
 c. Under `Window`, select `XRPK/Copy XRPK Template`. Confirm the dialog box.
 
@@ -58,7 +67,7 @@ e. Still under `Player` in the `Project Settings` window, under `Publishing Sett
 
 f. Still in `Publishing Settings`, _only if_ your Unity version includes a field called `WebAssembly Arithmetic Exceptions`, change the dropdown to `Ignore` (this seems to have been removed in later versions).
 
-g. In the `Project Settings` window, go to `XR Plugin Management`, make sure you're on the `WebGL Settings` tab and check `WebXR Export`
+g. In the `Project Settings` window, go to `XR Plug-in Management`, make sure you're on the `WebGL Settings` tab and check `WebXR Export`
 ![](./unity_xrpk/7.png)
 
 h. _Optional_ (but recommended): to be able to iterate in VR in the editor, switch to `PC, Mac, Linux & Standalone Settings` and enable your XR runtime of choice (i.e, Oculus, etc.)
@@ -71,7 +80,7 @@ Phew! You should now be fully configured to run the sample scene, or any other s
 
 You should have already imported the sample scene from the package in step `2a`. If you haven't, do so now.
 
-In the `Project` window, open the sample scene, located at `Assets/Samples/Pluto XR Package Importer/[version]/Sample XRPK Scene/Scenes`
+In the `Project` window, open the sample scene, located at `Assets/Samples/Pluto XR Package Exporter/[version]/Sample XRPK Scene/Scenes`
 
 The scene is fairly minimal and consists of correctly configured cameras, some interactable and physics-enabled cubes, and visual feedback for the XR Inputs.
 In the scene hierarchy, under `XRPKCameraSet` take a look at the `Left Controller` & `Right Controller` to understand the structure of the XR Inputs and the script `XRPK Controller Interaction` to quickly learn how to access various input features.
