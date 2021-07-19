@@ -1,0 +1,58 @@
+---
+title: 'Tutorial: Unity Multi Apps Part 2: Networking'
+metaTitle: 'Tutorial: Unity Multi Apps Part 2: Networking'
+metaDescription: 'Tutorial: Unity Multi Apps Part 2: Networking'
+---
+
+## Introduction
+
+Now that you've [built an XR Package with Unity](./unityxrpk), you're ready for the next step: implementing netwokring!
+Multi Apps are inherently social; Every Multi App is inherently shareable (by loading it into the Pluto Multi App Launcher, every Pluto conversation member automatically loads an identical copy).
+That said, implementing a networking layer lets you design intricate interactive multi user experiences, and share data between your Multi Apps. It's something you'll typically want to do when designing your Multi Apps.
+
+We have prepared a sample project for you which you can download [here](https://github.com/PlutoVR/unity-networked-xrpk-sample). The project utilizes [Photon Unity Networking (PUN)](https://id.photonengine.com/connect/authorize?client_id=Live.WWW&redirect_uri=https%3A%2F%2Fwww.photonengine.com%2Fsignin-oidc&response_type=code&scope=openid%20egweb.profile&code_challenge=5DXCoaVehvLCLDM1AzHvkMTWzDgNKl9Q6wBe9Hj9MTY&code_challenge_method=S256&response_mode=form_post&nonce=637622696265917553.ZjdmYzNjOTgtNTRjYi00YjU0LTk2ZjQtMzQ5MDBmYmRhYjRkMDlhYjhjNTItNjAwOC00NWYwLThhMTEtZGQ4ZGE3ODJlNjgx&ui_locales=en-US&state=CfDJ8HsbaHtZH1VIll6ZzG1iqijHciVFs7-kG7n_iOQ9Q9pUiOFCzyy0bO-7ZfC9LGvepggG4MNtfKm1WaOzVx_TZWZlRdGJh4XGGNqJOhxoUE-dujBqZOLP6Cs4MvdTpQ5FHvULAMyf7o2a4jap7KIr1928WyoASmuJB13uLpEQVFe0NvTrvAl4dW_qmJMpxNIrxm_e3kSsvnrib8Bp7rZzKeUak5AEk9jG4H6qWVcopQlg334vaXWp0Jqh0Y34jBu0swaTI-Lmo5XEKJ8_XZAvIVDHsAemAchCgqLEwYNGvBrc8R9K61_RWCFwhlq3mmMX28gBF8FtKPK1prF_glWUHSWZ3vviurISUef88ogtstsd3FgBLm9deyGDXFPn0H77Wg&x-client-SKU=ID_NETSTANDARD2_0&x-client-ver=5.5.0.0),
+a popular networking library for Unity. Luckily, Photon has a free tier, so you can download the project, add your own Photon app ID (which you can get by [registering your app](https://developer.photonengine.com/dashboard/)) and witness XR Package networking in action!
+
+It's important to mention you can use _any_ networking solution you like, as long as it's _supported in the WebGL runtime_ (which unfortunately, as of the time of writing, excludes the equally popular Normcore.)
+
+You'll notice the project is very similar to the Sample Package you've encountered in the previous tutorial. In fact, the only difference is the inclusion and implementation of Photon (which also involves a minor refact to the Cubes prefab - it is now instantiated when the first user has joined, or created, the room).
+
+Before we start, we recommend you acquaint yourself with [Photon/PUN fundamentals](https://doc.photonengine.com/zh-cn/pun/v2/demos-and-tutorials/pun-basics-tutorial/intro).
+It's important to note this is just an example networking implementation - the XR Package-critical step will be described in step 2.
+
+## 0. Preparation
+
+As mentioned, you'll have to add your own App ID to Photon - this is a unique identifier for your app, and is used to identify your app when connecting to a specific Photon server. It's free to get (see above link), and once you have it, you'll need to add it to the project.
+Go to `Window/Photon Unity Networking/Highlight Server Settings"` and add your App ID. You should be good to go - hitting `Play` will demonstrate the stages of connecting to a server in the console and instantiate the Cubes prefab.
+
+## 1. General Scene Changes
+
+a. Note that the Left Controller and Right Controller scene objects now have additional components added to them: a Photon View and a Photon Transform View.
+These are built-in compoenents that, without any code, let us sync the position and rotation of the controller with the position and rotation of each controller in the Unity scene (assuming we're networked - which we'll discuss in the next step).
+
+![](./unity_xrpk_networked/1.png)
+
+It's important to note that even though were are not displaying the controllers graphically (since, when working with multi apps, we can see the controllers represented in our runtime environment like SteamVR), we are still able to sync the position and rotation of the controllers - furthermore this is critical to ensure that the cubes respond to each controller across _every other networked instance of the scene_, and not just in ours.
+
+Aside from those Photon components, the controller object is identical to the example in the previous tutorial.
+
+b. Next, take a look at the `Networking Manager` script under the `Managers` Scene object.
+The script is responsible for handling the connection to Photon. It is a variation on the basic connection script from the [Photon PUN Tutorial](https://doc.photonengine.com/zh-cn/pun/v2/demos-and-tutorials/pun-basics-tutorial/intro).
+The connection is handled automatically and straightforwardly, with one exception: the room id is procured from the Pluto _Multi App Manager_ - thus, ensuring a unique room is created for every Pluto conversation that the multi app is part of!
+
+## 2. More on the Multi App Manager
+
+Included in the Pluto Unity XRPK Exporter is a `MultiAppManager` static object that provides an entry point to several endpoints available to you when you launch your XRPK (although _not_ in the Unity editor!).
+One of them is access to the unique XR Package ID generated by the Pluto Multi App Launcher when it loads your XR Package.
+This is a very helpful piece of data, since without it we'd have to find another way to pass a room ID, create a lobby system, or have every user of this Multi App join the same room (regardless of Pluto conversation) - none of which are ideal solutions.
+For our purposes, the relevant line is #16 in `NetworkingManager.cs`:
+
+```csharp
+// using the Multi App Manager (available thanks to the pluto XRPK exporter package)
+// to get the session-unique XRPK ID and use it as a room identifier
+  _appId = MultiAppManager.GetAppId();
+```
+
+You can use `MultiAppManager.GetAppId()` regardless of which networking stack you use, to get a reliably Unique room number that will work per-XRPK, per Pluto conversation. This is the most important line in this example, and the biggest takeaway.
+
+There are no other special considerations for this example. Go ahead and build it, Launch the resulting XRPK to the Multi App Launcher and - if you're in a Pluto conversation - you and all other participants should be able to see and interact with the cubes.
