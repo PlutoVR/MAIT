@@ -10,8 +10,8 @@ metaDescription: 'Tutorial: Your First Sandcastle Multi App'
 
 In this brief guide, we'll:
 
-1. **build** a multi app XR Package (abbreviated as "xrpk" from here on) from scratch, using Sandcastle
-2. **deploy** it to Pluto's App Launcher, where it can coexist simultaneously among _other_ XR multi apps. It will also be visible and interactable by other participants in any [Pluto](httsp://pluto.app) conversation.
+1. **Build** a multi app XR Package (abbreviated as "xrpk" from here on) from scratch, using Sandcastle
+2. **Deploy** it to Pluto's App Launcher, where it can coexist simultaneously among _other_ XR multi apps. It will also be visible and interactable by other participants in any [Pluto](https://pluto.app) conversation.
 
 [Sandcastle](https://github.com/plutovr/sandcastle/) is a friendly WebXR framework for creating spatial-first, multi-user WebXR apps and XR Packages.
 It also features a build pipeline designed explicitly for XR Package creation and as such, is probably the easiest way to get started creating XR Packages.
@@ -25,7 +25,7 @@ The Sandcastle [Wiki](https://github.com/PlutoVR/sandcastle/wiki) will be anothe
 
 For this tutorial, you'll need:
 
-- [NodeJS](https://nodejs.org/en/) and, ideally, a basic working knowledge of Node (mostly running scripts in your terminal)
+- [NodeJS](https://nodejs.org/en/) and, ideally, a basic working knowledge of Node (mostly running scripts in your terminal).
 - Your JavaScript-friendly IDE of choice; (many of us like [VS Code](https://code.visualstudio.com/), but it doesn't make a big difference).
 - [Metachromium](https://store.steampowered.com/app/685110/Metachromium/), a free, SteamVR-based spatial app browser that is necessary to run the Pluto App Launcher and XR Packages. While WebXR itself is supported by most major browsers, Metachromium is unique in its ability to deliver WebXR as an XR _overlay_, so that Metachromium-based WebXR content can coexist with XR content from elsewhere.
 
@@ -38,8 +38,8 @@ In a folder of your choice, type:
 npx create-sandcastle YOUR_APP_NAME // for example, "npx create-sandcastle butterflies"
 ```
 
-This command will create a new folder bearing your app's name, then enter the folder and install all the dependencies needed for a fresh sandcastle project.
-Finally it will launch the project so at the end you should see Sandcastle's default scene auto-launch in a browser - looking something like this:
+This command will create a new folder bearing your app's name, then it will enter the folder and install all the dependencies needed for a fresh Sandcastle project.
+Finally, it will launch the project so at the end you should see Sandcastle's default scene auto-launch in a browser - looking something like this:
 
 ![](./sandcastle/1.png)
 
@@ -52,7 +52,7 @@ A couple of notes about this process:
 - This app, currently served at `localhost:1234`, probably launched in a browser that is not Metachromium. While you can still see your app, you'll need a WebXR-capable browser to see it in VR, and specifically Metachromium to see it as a multi app among other apps.
   Now would be a good time to open Metachromium and goto `localhost:1234`.
 
-- Also note that, assuming Metachromium identifies your hardware and can run WebXR, you will _no longer see_ the app in Metachromium's window but will see it in VR - iteration is now done in WebXR, i.e in SteamVR. If you prefer to keep working in the browser for now, use any other browser, that will display your content in "regular" WebGL. _[note that the following screenshots are from another browser before explicitly transitioning to Metachromium]_
+- Also note that, assuming Metachromium identifies your hardware and can run WebXR, you will _no longer see_ the app in Metachromium's window but will see it in VR - iteration is now done in WebXR, i.e in SteamVR. If you prefer to keep working in the browser for now, use any other browser that will display your content in "regular" WebGL. _[note that the following screenshots are from another browser before explicitly transitioning to Metachromium]_
 
 ## The Lay of the Land
 
@@ -65,7 +65,7 @@ There's a lot going on here, so let's focus on what's important:
 - `./src/examples` contains several examples that utilize networking, physics, rich media and more. Refer to them and the Sandcastle [Wiki](https://github.com/PlutoVR/sandcastle/wiki) for more information on individual features.
 - `./examples/defaultscene.js` is the scene currently loaded into the Sandcastle engine. This is done by calling the `loadScene` function inside `index.js`. This is also where you can change the scene that is loaded into the engine.
 
-If you open `defaultscene.js` you'll see the ThreeJS code that is responsible for what you see in your browser. We'll be iterating on this file.
+If you open `defaultscene.js`,  you'll see the ThreeJS code that is responsible for what you see in your browser. We'll be iterating on this file.
 
 ## Change it up
 
@@ -92,7 +92,7 @@ Voila! A cube!
 Note: one of Sandcastle's features is a game-engine-like editor camera. While in your browser, you can Right Click + WASD to move around the scene and drag to change where your editor camera is pointed.
 (Like game engine cameras, has no effect on the WebXR cameras once you go into VR, but is a useful feature for development purposes.)
 
-Let's animate our cube. As you may know, a ThreeJS is animated the scene by hooking into the browser's built in RequestAnimationFrame() function, which runs many times a second.
+Let's animate our cube. As you may know, a ThreeJS scene is animated by hooking into the browser's built-in RequestAnimationFrame() function, which runs many times a second.
 Sandcastle offers a convenient feature - **any method named Update(), on any object that's in the scene, will run every frame**.
 Let's add some rotation to the cube:
 
@@ -112,7 +112,7 @@ Open `http://localhost:1234` in Metachromium and click "ENTER VR":
 ![](./sandcastle/4.png)
 
 As you can see, we can see our rotating cube inside the rings, existing inside SteamVR! While it is not yet an XR Package, Metachromium is capable of presenting WebXR content as an _overlay_ which is why we can see SteamVR in the background.
-While without XR Packages we are limited to a _single_ WebXR-scene-as-overlay at a time, it's more than suitable for dev pruposes.
+Without XR Packages, we are limited to a _single_ WebXR-scene-as-overlay at a time, but this is more than suitable for development purposes.
 
 Finally, let's add a touch of input! WebXR inputs come in two flavors: _events_ (pertaining to trigger and squeeze presses) and _polling based_ inputs (related to the gamepad API: buttrons and joysticks).
 We're not going to focus on WebXR input in this tutorial, but feel free to check out the [WebXR Input Explainer](https://github.com/immersive-web/webxr/blob/master/input-explainer.md) and [Sandcastle Wiki](https://github.com/plutovr/sandcastle/wiki#webxr-input-1)) for more information.
@@ -124,7 +124,7 @@ import XRInput from "../engine/xrinput";
 ```
 
 As the [Sandcastle Wiki](https://github.com/plutovr/sandcastle/wiki#webxr-input-1) teaches us, we can subscribe to input events fro XRInput.
-Let's slightly offset the cube's position every time trigger is pressed (a `selectstart` in WebXR spec parlance) - add the following code after adding the cube to the scene:
+Let's slightly offset the cube's position every time trigger is pressed (a `selectstart` in WebXR spec parlance). Add the following code after adding the cube to the scene:
 
 ```
 XRInput.onSelectStart = e => {
@@ -217,7 +217,7 @@ export { scene };
 
 ## Package it up!
 
-Finally, let's turn this app into an [XR Package](../platforms/tb_webxr#xrpackages) so that we can load it alongisde other multi apps as we traverse the immersive web!
+Finally, let's turn this app into an [XR Package](../platforms/tb_webxr#xrpackages) so that we can load it alongside other multi apps as we traverse the immersive web!
 
 Sandcastle has a handy script that turns WebXR apps into XR Pacakges. From the command line in your project folder, run:
 
@@ -231,7 +231,7 @@ You'll be guided through an interactive menu - choose the default option for any
 
 As the script mentions, your xrpk now awaits you in the `./dist` folder; note that the XR Package is a single file, and its suffix is `.wbn`.
 
-Load it up in your preferred XR Pacakge environment (we recommend [The Pluto App Launcher](https://chimera.pluto.app/) - note that you'll currently have to serve your file remotely using the `Custom-From URL` option), and see it in action alongside other multi apps!
+Load it up in your preferred XR Package environment (we recommend [The Pluto App Launcher](https://chimera.pluto.app/) - note that you'll currently have to serve your file remotely using the `Custom-From URL` option), and see it in action alongside other multi apps!
 
 ![](./sandcastle/7.gif)
 
@@ -243,4 +243,4 @@ That just about wraps up this Sandcastle tutorial; you are now able to jumpstart
 
 What multi app will you build next?
 
-Feel free to offer suggestions or raise issues to anything you see in this guide on [GitHub](https://github.com/PlutoVR/MAIT/tree/main/content/beginner_tutorials/sandcastle.mdx)!
+Feel free to offer suggestions or raise issues to anything you see in this guide on [GitHub](https://github.com/PlutoVR/MAIT/blob/main/content/tutorials/sandcastle.mdx)!
