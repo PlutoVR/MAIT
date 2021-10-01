@@ -6,7 +6,8 @@ const config = {
     trailingSlash: false,
   },
   header: {
-    logo: 'https://pluto.app/img/logo.png',
+    // logo: 'https://pluto.app/img/logo.png',
+    logo: 'https://github.com/PlutoVR/MAIT/blob/c52836a9c16fb49455f06893271f9ccda18ef3e7/content/images/pluto-logo-new.png?raw=true',
     logoLink: 'https://pluto.app/',
     title: 'Multi App Integration Toolbox',
     githubUrl: 'https://github.com/PlutoVR/MAIT/',
