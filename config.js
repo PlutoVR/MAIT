@@ -10,7 +10,7 @@ const config = {
     logoLink: 'https://pluto.app/',
     title: 'Multi App Integration Toolbox',
     githubUrl: 'https://github.com/PlutoVR/MAIT/',
-    helpUrl: 'https://pluto.app',
+    helpUrl: '',
     tweetText: '',
     // social: `<li>
     //     <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
@@ -26,14 +26,14 @@ const config = {
     //       </div>
     //     </a>
     //   </li>`,
-    links: [{ text: '', link: '' }],
-    // search: {
-    //   enabled: true,
-    //   indexName: '',
-    //   algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
-    //   algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-    //   algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
-    // },
+    links: [{ text: 'CONTACT US', link: 'mailto:mait@plutovr.com' }],
+    search: {
+      enabled: true,
+      indexName: '',
+      algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
+      algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+      algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
+    },
   },
   sidebar: {
     forcedNavOrder: [
@@ -44,8 +44,9 @@ const config = {
       '/xr_design_and_accessibility',
     ],
     collapsedNav: ['/tutorials'],
-    links: [{ text: 'Pluto', link: 'https://pluto.app' }],
-    frontline: false,
+    collapsedNav: ['/platforms'],
+    links: [{ text: 'CONTACT US', link: 'mailto:mait@plutovr.com' }],
+    frontline: true,
     ignoreIndex: true,
     title: 'Multi App Integration Toolbox',
   },
