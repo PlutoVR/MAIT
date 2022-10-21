@@ -2,6 +2,9 @@ name: release-build
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+permissions:
+  id-token: write
+  contents: read
 
 on:
   push:
@@ -28,3 +31,13 @@ jobs:
 
       - name: build
         run: npm run build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-region: us-west-2
+          role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
+          role-session-name: ${{ github. }}
+
+      - name: testAws
+        run: aws s3 ls s3://plutovr/plutosphere
