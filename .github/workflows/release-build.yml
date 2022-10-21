@@ -37,7 +37,7 @@ jobs:
         with:
           aws-region: us-west-2
           role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
-          role-session-name: ${{ github. }}
+          role-session-name: ${{ github.repository }}-${{ github.workflow }}-${{ github.ref }}
 
       - name: testAws
         run: aws s3 ls s3://plutovr/plutosphere
