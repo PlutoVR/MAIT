@@ -10,13 +10,10 @@ on:
   push:
     branches:
       - main
-      - convert-ci-cd-to-github-actions
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_READONLY_TOKEN }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -38,5 +35,7 @@ jobs:
           aws-region: us-west-2
           role-to-assume: arn:aws:iam::865423910594:role/github-actions-trust
 
-      - name: testAws
-        run: aws s3 ls s3://plutovr/plutosphere
+      - name: publish
+        run: |
+          aws s3 sync --delete public s3://mait.pluto.app/
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths "/*"
